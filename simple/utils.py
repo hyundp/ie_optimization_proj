@@ -20,7 +20,7 @@ def plot_policy(probs_or_qvals, frame, action_meanings=None):
         action_meanings = {0: 'U', 1: 'R', 2: 'D', 3: 'L'}
     fig, axes = plt.subplots(1, 2, figsize=(12, 6))
     max_prob_actions = probs_or_qvals.argmax(axis=-1)
-    probs_copy = max_prob_actions.copy().astype(object)
+    probs_copy = max_prob_actions.copy().astype(np.object)
     for key in action_meanings:
         probs_copy[probs_copy == key] = action_meanings[key]
     sns.heatmap(max_prob_actions, annot=probs_copy, fmt='', cbar=False, cmap='coolwarm',
@@ -220,7 +220,7 @@ def seed_everything(env: gym.Env, seed: int = 42) -> None:
     env.observation_space.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    torch.set_deterministic(True)
+    # torch._set_deterministic(True)
 
 
 def test_policy_network(env, policy, episodes=1):
