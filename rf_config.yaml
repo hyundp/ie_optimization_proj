@@ -1,0 +1,16 @@
+n_estimators=100, # 생성할 트리의 개수
+max_features='sqrt', # 노드를 분할할 때 고려할 특성의 무작위 하위 집합 크기
+criterion='gini', # 노드의 분할 기준을 결정하는 평기지표
+max_depth=None, # 트리의 최대 깊이
+min_samples_split=2, # 노드를 분할하기 위해 필요한 최소 샘플 개수
+min_samples_leaf=1, # 노드를 분할하기 위해 리프 노드가 가져야할 최소 샘플 개수
+min_weight_fraction_leaf=0.0, # 위와 같지만, 가중치가 부여된 샘플 수에서의 비율
+max_leaf_nodes=None, # 생성될 수 있는 최대 리프 노드 제한
+min_impurity_decrease=0.0, # 최소 불순도 감소량
+bootstrap=True, # 중복을 허용하여 샘플을 랜덤하게 선택한다 -> 모델 다양성 증가
+oob_score =False , #일반화 정확도를 줄이기 위해 밖의 샘플 사용 여부
+n_jobs=None, # 모델 학습 및 예측에 사용되는 병렬작업의 수
+random_state=None, # 랜덤 시드 -> 재현성
+verbose=0, # 정보 상세도 제어
+warm_start = False, # 이전 호출의 솔루션을 재사용하여 합계에 더 많은 견적가를 추가
+class_weight=None # 클래스 가중치
