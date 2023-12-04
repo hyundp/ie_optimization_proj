@@ -42,7 +42,7 @@ def _lstm_to_mlp(cell,max_length,aktiv,hiddens,dueling, inpt,seq, num_actions, s
             h = tf.matmul(inpt[:,0,-nfeatures:],wh0)
             out = []
             for idx in range(max_length):
-                x = inpt[:,idx,:nin];
+                x = inpt[:,idx,:nin]
                 z = tf.matmul( tf.zeros(shape=tf.shape(x)) if idx==0 else x, wx) + tf.matmul(h, wh) +  b
                 i, f, o, u = tf.split(axis=1, num_or_size_splits=4, value=z)
                 i = tf.nn.sigmoid(i)
